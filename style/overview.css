@@ -1,0 +1,20 @@
+.bpimgcontainer{
+	float:right;
+	max-width:calc(100% / 3);
+	min-width:10%;
+	background-color:#555;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	padding:0.5em 0.5em 0.25em 0.5em;
+	border-radius:0.25em;
+}
+.bpimgcontainer>img{
+	max-width:100%;/* why do I have to set this? */
+}
+.bpimgcontainer>span{
+	margin-top:0.25em;
+}
+.blogpost>p{
+	white-space:pre-wrap;
+}
