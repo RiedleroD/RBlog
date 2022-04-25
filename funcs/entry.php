@@ -1,17 +1,26 @@
 <?php
 function genBlogEntry($author,$email,$datetime,$content){
+	$author = htmlentities($author);
+	$email = htmlentities($email);
 	echo "<div class='card blogpost'>";
 		echo "<div class='cardheader'><span>Posted by: $author &lt;<a href='mailto:$email'>$email</a>&gt;</span><span>$datetime</span></div>";
 		foreach($content as $stuff){
 			switch($stuff["type"]){
 				case "txt":
-					echo "<p>${stuff['txt']}</p>";
+					echo "<p>";
+					echo htmlentities($stuff['txt']);
+					echo "</p>";
 					break;
 				case "h":
-					echo "<h3>${stuff['txt']}</h3>";
+					echo "<h3>";
+					echo htmlentities($stuff['txt']);
+					echo "</h3>";
 					break;
 				case "img":
-					echo "<div class='bpimgcontainer'><img src='${stuff['src']}' alt='${stuff['alt']}'><span>${stuff['alt']}</span></div>";
+					$alt = htmlentities($stuff['alt']);
+					echo "<div class='bpimgcontainer'><img src='";
+					echo htmlentities($stuff['src']);
+					echo "' alt='$alt'><span>$alt</span></div>";
 					break;
 				default:
 					echo "<p>Unrecognized content type: ${stuff['type']}</p>";
